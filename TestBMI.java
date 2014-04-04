@@ -29,3 +29,76 @@ public class TestBMI extends javax.swing.JFrame {
 	public static final double METERS_PER_INCH = 0.0254;
 	private double bmi;
 	private String status;
+
+public TestBMI(String name, int age, double weight, double height) {
+		    this.name = name;
+		    this.age = age;
+		    this.weight = weight;
+		    this.height = height;
+		  }
+		  
+		  public TestBMI(String name, double weight, double height) {
+		    this(name, 20, weight, height);
+		  }
+	public TestBMI() {
+		
+
+		label1 = new JLabel("Name : ");
+		this.add(label1);
+
+		Name = new JTextField();
+		this.add(Name);
+
+		label2 = new JLabel("Male / Female");
+		this.add(label2);
+
+		label3 = new JLabel("Age : ");
+		this.add(label3);
+
+		Age = new JTextField();
+		this.add(Age);
+
+		label4 = new JLabel("years");
+		this.add(label4);
+
+		label5 = new JLabel("Height : ");
+		this.add(label5);
+
+		Height = new JTextField();
+		this.add(Height);
+
+		label6 = new JLabel("Inch");
+		this.add(label6);
+
+		label7 = new JLabel("Weight : ");
+		this.add(label7);
+
+		Weight = new JTextField();
+		this.add(Weight);
+
+		label8 = new JLabel("Pound");
+		this.add(label8);
+
+
+		Enter = new JButton("Enter");
+		this.add(Enter);
+
+
+		label9 = new JLabel("                BMI :   (kg / (m * m)");
+		this.add(label9);
+
+		BMI = new JTextField();
+		this.add(BMI);Enter.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				name = Name.getText().trim();
+				age = Integer.parseInt(Age.getText().trim()); 
+				height = Double.parseDouble(Height.getText().trim());
+				weight = Double.parseDouble(Weight.getText().trim());
+				bmi = getBMI();
+				status = getStatus();
+				BMI.setText(bmi + "     " + status);
+			}
+		});
+
+	}
