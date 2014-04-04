@@ -102,3 +102,51 @@ public TestBMI(String name, int age, double weight, double height) {
 		});
 
 	}
+public static void main(String[] args) {
+
+	try {
+		TestBMI frame = new TestBMI();
+		frame.setTitle("BMI");
+		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new GridLayout(6, 3, 3, 3));
+		frame.setVisible(true);
+		frame.setSize(500, 400);
+		frame.setLocationRelativeTo(null);
+	} catch (Exception e) {
+
+	}
+}
+public double getBMI() {
+    double bmi = weight * KILOGRAMS_PER_POUND / 
+      ((height * METERS_PER_INCH) * (height * METERS_PER_INCH));
+    return Math.round(bmi * 100) / 100.0;
+  }
+  
+  public String getStatus() {
+    double bmi = getBMI();
+    if (bmi < 18.5)
+      return "Underweight";
+    else if (bmi < 25)
+      return "Normal";
+    else if (bmi < 30)
+      return "Overweight";
+    else
+      return "Obese";
+  }
+  
+  public String showName() {
+    return name;
+  }
+  
+  public int showAge() {
+    return age;
+  }
+  
+  public double showWeight() {
+    return weight;
+  }
+  
+  public double showHeight() {
+    return height;
+  }
+}
