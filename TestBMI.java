@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//Object and Constructor , Listener
 public class TestBMI extends javax.swing.JFrame {
 	private JButton Enter;
 	private JLabel label1;
@@ -30,6 +31,7 @@ public class TestBMI extends javax.swing.JFrame {
 	private double bmi;
 	private String status;
 
+//Three Constrcutors
 public TestBMI(String name, int age, double weight, double height) {
 		    this.name = name;
 		    this.age = age;
@@ -40,6 +42,7 @@ public TestBMI(String name, int age, double weight, double height) {
 		  public TestBMI(String name, double weight, double height) {
 		    this(name, 20, weight, height);
 		  }
+        //Set the Label and TestField and Button for the object
 	public TestBMI() {
 		
 
@@ -86,9 +89,13 @@ public TestBMI(String name, int age, double weight, double height) {
 
 		label9 = new JLabel("                BMI :   (kg / (m * m)");
 		this.add(label9);
-
+                
 		BMI = new JTextField();
-		this.add(BMI);Enter.addActionListener(new ActionListener() {
+                
+		this.add(BMI);
+         
+                        //Listener for object get into mainmethod
+                        Enter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				name = Name.getText().trim();
@@ -102,8 +109,9 @@ public TestBMI(String name, int age, double weight, double height) {
 		});
 
 	}
+//Main method
 public static void main(String[] args) {
-
+       
 	try {
 		TestBMI frame = new TestBMI();
 		frame.setTitle("BMI");
@@ -116,6 +124,8 @@ public static void main(String[] args) {
 
 	}
 }
+
+//Method for use
 public double getBMI() {
     double bmi = weight * KILOGRAMS_PER_POUND / 
       ((height * METERS_PER_INCH) * (height * METERS_PER_INCH));
